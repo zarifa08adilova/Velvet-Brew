@@ -23,6 +23,10 @@ body {
     scroll-behavior: smooth;
 }
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
 nav {
     background-color: var(--white);
     padding: 1rem 5%;
