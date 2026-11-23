@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Velvet Brew Café</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+<nav>
+    <h1>Velvet Brew</h1>
+    <ul>
+        <li><a href="#menu"><button type="navi" class="nav-button">Menu</button></a></li>
+        <li><a href="#order"><button type="navi" class="nav-button">Order</button></a></li>
+        <li><a href="#reviews"><button type="navi" class="nav-button">Reviews</button></a></li>
+        <li><a href="#contact"><button type="navi" class="nav-button">Contact</button></a></li>
+        <li><select id="drinkSelect">
+            <option>Iced Latte</option>
+            <option>Hot Chocolate</option>
+            <option>Matcha Latte</option>
+        </select></li>
+    </ul>
+</nav>
+
+<section class="hero"></section>
+
+<section id="menu">
+    <h2>Menu</h2>
+    <div class="menu-container">
+        <div class="menu-item">
+            <img src="images/caramel-latte.jpg" alt="Caramel Latte" height="300px">
+            <h3>Caramel Latte</h3>
+            <p>$8.50</p>
+            <button class="add-button"
+            onclick="addToCart('Caramel Latte', 8.5)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="images/Iced-Latte.jpg" alt="Iced Latte" height="300px" width="250px">
+            <h3>Iced Latte</h3>
+            <p>$7.00</p>
+            <button class="add-button"
+            onclick="addToCart('Iced Latte', 7.0)">Add</button>
+        </div>
+    </div>
+
+    <form id="orderForm">
+        <input type="text" id="coffee" placeholder="Coffee name">
+        <input type="text" id="customer" placeholder="Customer name">
+        <input type="number" id="quantity" placeholder="Quantity">
+        <button type="submit">Order</button>
+    </form>
+</section>
+
+<section id="order">
+    <h2>Your Order</h2>
+    <div id="cart">No items yet.</div>
+    <p id="total"></p>
+</section>
+
+<section id="leave-review">
+    <h2>Please Leave a Review.</h2>
+    <form onsubmit="submitReview(event)">
+        <input type="text" id="review-name" placeholder="Your Name" required>
+        <textarea id="review-text" placeholder="Please Write Your Review..." required></textarea>
+        <select id="review-rating">
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+        </select>
+        <button type="submit" class="submit-button">Submit Review</button>
+    </form>
+</section>
+
+<section id="reviews">
+    <h2>Reviews</h2>
+    <p>"Best café ever!" ⭐⭐⭐⭐⭐</p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <form onsubmit="submitForm(event)">
+        <input type="text" id="nameInput" placeholder="Your Name">
+        <input type="text" placeholder="Your Request" required>
+        <button id="sendBtn" class="invalid" disabled>Send</button>
+        <p>You may also contact us via:</p>
+        <div class="socials">
+            <a href="https://instagram.com/zarifaa_08" class="icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/944518010908" class="icon whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:adilovazarifa08@gmail.com" class="icon gmail">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </form>
+</section>
+
+<hr>
+
+<section id="copyright">
+    <footer>© 2026 Velvet Brew - All Rights Reserved</footer>
+</section>
+
+<section id="admin">
+    <h2>All Orders</h2>
+    <button onclick="loadOrders()">Refresh Orders</button>
+    <table id="ordersTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Coffee</th>
+                <th>Customer</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="ordersBody"></tbody>
+    </table>
+</section>
+
+<script src="js/script.js"></script>
+</body>
+</html>
